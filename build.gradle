@@ -1,0 +1,34 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group 'com.jw'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.batch:spring-batch-integration'
+    implementation 'org.springframework.batch:spring-batch-core'
+    implementation 'org.springframework.integration:spring-integration-file'
+    implementation 'org.springframework.boot:spring-boot-starter-integration'
+    implementation'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.integration:spring-integration-http'
+    implementation 'org.springframework.integration:spring-integration-jms'
+    implementation 'org.apache.activemq:activemq-broker'
+    implementation 'org.springframework:spring-jms'
+    implementation group: 'javax.jms', name: 'javax.jms-api', version: '2.0.1'
+    implementation group: 'commons-lang', name: 'commons-lang', version: '2.2'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testImplementation 'org.springframework.integration:spring-integration-test'
+    testImplementation group: 'org.apache.activemq.tooling', name: 'activemq-junit', version: '5.15.0'
+}
